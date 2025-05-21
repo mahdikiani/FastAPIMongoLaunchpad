@@ -13,6 +13,8 @@ if __name__ == "__main__":
         host="0.0.0.0",
         port=8000,
         reload=True,
-        # access_log=False,
+        access_log=False,
+        reload_excludes=["logs"],
+        reload_delay=1.0,
         workers=1,
     )

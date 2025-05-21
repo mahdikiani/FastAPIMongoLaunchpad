@@ -1,9 +1,9 @@
 uvicorn
 fastapi
-pydantic
+pydantic[email]
+httpx
 
-singleton_package
-json-advanced
 python-dotenv
-#debugpy
-#ipython
+
+beanie
+fastapi-mongo-base
