@@ -128,7 +128,15 @@ app = app_factory.create_app(settings=config.Settings())
 app.include_router(book_router, prefix=f"{config.Settings.base_path}/books")
 ```
 
-## 📚 Available Endpoints
+8. Start Project using docker-compose.yml:
+```bash
+docker compose up --build -d
+```
+
+9. Check documentation in:
+http://localhost:8000/api/v1/docs
+
+### 📚 Available Endpoints
 
 After setting up your module, you'll automatically have these endpoints:
 
@@ -137,6 +145,14 @@ After setting up your module, you'll automatically have these endpoints:
 - `GET /api/v1/books/{id}` - Get a specific book
 - `PATCH /api/v1/books/{id}` - Update a book
 - `DELETE /api/v1/books/{id}` - Delete a book
+
+
+## 📖 API Documentation
+
+Once your application is running, you can access:
+- Swagger UI: `http://localhost:8000/api/v1/docs`
+- ReDoc: `http://localhost:8000/api/v1/redoc`
+
 
 ## 🔧 Configuration
 
@@ -153,12 +169,6 @@ After setting up your module, you'll automatically have these endpoints:
    - Enable Traefik by uncommenting the Traefik service in `docker-compose.yml`
    - Configure your domain and SSL settings in the Traefik labels
    - Access your application through the configured domain
-
-## 📖 API Documentation
-
-Once your application is running, you can access:
-- Swagger UI: `http://localhost:8000/api/v1/docs`
-- ReDoc: `http://localhost:8000/api/v1/redoc`
 
 ## 📝 License
 
