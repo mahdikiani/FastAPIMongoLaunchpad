@@ -6,7 +6,7 @@ A production-ready boilerplate for building FastAPI applications with MongoDB in
 
 1. Clone and setup:
 ```bash
-git clone <repository-url>
+git clone https://github.com/mahdikiani/FastAPIMongoLaunchpad.git
 cd fastapi-mongo-base-template
 cp sample.env .env
 ```
