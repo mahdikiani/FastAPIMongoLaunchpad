@@ -13,7 +13,7 @@ cp sample.env .env
 
 2. Start the application:
 ```bash
-docker-compose up --build
+docker compose up --build
 ```
 
 Your API docs will be available at `http://localhost:8000/api/v1/docs`
@@ -46,13 +46,20 @@ app/
 
 Let's create a simple "Books" module as an example:
 
-1. Create the module directory and files:
+1. Clone and setup:
+```bash
+git clone https://github.com/mahdikiani/FastAPIMongoLaunchpad.git
+cd fastapi-mongo-base-template
+cp sample.env .env
+```
+
+2. Create the module directory and files:
 ```bash
 mkdir -p app/apps/books
 touch app/apps/books/{__init__.py,models.py,schemas.py,routes.py,services.py}
 ```
 
-2. Define your schemas (`schemas.py`):
+3. Define your schemas (`schemas.py`):
 ```python
 from fastapi_mongo_base.schemas import BaseEntitySchema
 
@@ -63,7 +70,7 @@ class BookSchema(BaseEntitySchema):
     isbn: str | None = None
 ```
 
-3. Create your model (`models.py`):
+4. Create your model (`models.py`):
 ```python
 from fastapi_mongo_base.models import BaseEntity
 from .schemas import BookSchema
@@ -73,7 +80,7 @@ class Book(BookSchema, BaseEntity):
     pass
 ```
 
-4. Set up routes (`routes.py`):
+5. Set up routes (`routes.py`):
 ```python
 from fastapi_mongo_base.routes import AbstractBaseRouter
 from . import models, schemas
@@ -85,7 +92,7 @@ class BookRouter(AbstractBaseRouter):
 router = BookRouter().router
 ```
 
-5. Add business logic (`services.py`):
+6. Add business logic (`services.py`):
 ```python
 from . import models
 
@@ -93,7 +100,7 @@ from . import models
 # The basic CRUD operations are already provided by AbstractBaseRouter
 ```
 
-6. Register your router in `server/server.py`:
+7. Register your router in `server/server.py`:
 ```python
 from fastapi_mongo_base.core import app_factory
 from apps.books import router as book_router
