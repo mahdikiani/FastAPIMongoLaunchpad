@@ -62,6 +62,23 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
+      # Test services
+      - name: Test services
+        id: test-services
+        run: |
+          # Install Python and pip
+          sudo apt-get update
+          sudo apt-get install -y python3 python3-pip
+          
+          # Install test dependencies
+          pip3 install pytest pytest-asyncio pytest-cov
+          
+          # Install project dependencies
+          pip3 install -r app/requirements.txt
+          
+          # Run tests with coverage report
+          pytest
+
       # Build and push Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
       - name: Build and push Docker image
