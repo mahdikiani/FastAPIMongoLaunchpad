@@ -72,6 +72,7 @@ jobs:
       - name: Test services
         id: test-services
         run: |
+          cd app
           uv run pytest
 
       # Build and push Docker image with Buildx (don't push on PR)
