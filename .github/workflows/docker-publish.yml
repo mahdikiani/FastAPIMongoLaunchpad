@@ -34,9 +34,7 @@ jobs:
         uses: astral-sh/setup-uv@v5
 
       - name: Install dependencies
-        run: |
-          cd app
-          uv sync -f pyproject.toml
+        run: uv sync --project app
 
       # Install the cosign tool except on PR
       # https://github.com/sigstore/cosign-installer
