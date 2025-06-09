@@ -1,7 +1,6 @@
 """FastAPI server configuration."""
 
 import dataclasses
-import os
 from pathlib import Path
 
 import dotenv
