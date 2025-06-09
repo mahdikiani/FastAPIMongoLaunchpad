@@ -1,5 +1,5 @@
 [project]
-name = "app"
+name = "fastapi-mongo-launchpad"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -13,3 +13,28 @@ dependencies = [
     "python-dotenv>=1.1.0",
     "uvicorn>=0.34.3",
 ]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.0",
+    "pytest-asyncio>=1.0.0",
+    "pytest-cov>=6.1.1",
+    "debugpy>=1.8.14",
+    "ruff>=0.11.13",
+    "pip>=25.1.1",
+    "ipython>=9.3.0",
+    "mongomock-motor>=0.0.36",
+]
+
+[tool.ruff]
+line-length = 88         # Black's default line length
+target-version = "py313"
+fix = true
+unsafe-fixes = true
+preview = true
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B"]
+
+[tool.ruff.format]
+quote-style = "double"
